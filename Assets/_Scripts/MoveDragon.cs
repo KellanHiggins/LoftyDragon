@@ -7,9 +7,10 @@ public class MoveDragon : MonoBehaviour
 	public float breath {get; set;}
 	public float flapSpeed = 0.5f;
 	public float moveSpeed = 3f;
-	private bool upDir = false;
 	private bool path = false;
-	private bool center = false;
+	private bool go = false;
+	private GameObject currentPath;
+	private float currentY = 0;
 
 	public float glidingGravity = -1f;
 
@@ -23,36 +24,68 @@ public class MoveDragon : MonoBehaviour
 		this.rigidbody2D.velocity = new Vector2(moveSpeed, 0);
 	}
 
+	void CheckToMove()
+	{
+		if (go == true)
+		{
+			if ((breath > -1)&&(breath < 1))
+			{
+				BoxCollider2D box = currentPath.GetComponent("BoxCollider2D")as BoxCollider2D;
+				currentY = this.transform.position.y;
+				if ((this.transform.position.y > box.bounds.center.y)||(this.transform.position.y < box.bounds.center.y))
+				{
+					MoveMe();
+				}
+				else if (this.transform.position.y == box.bounds.center.y+1)
+				{
+					Debug.Log("hit");
+					go = false;
+				}
+			}
+		}
+	}
+
+	void MoveMe()
+	{
+		BoxCollider2D box = currentPath.GetComponent("BoxCollider2D")as BoxCollider2D;
+		this.transform.position = Vector3.Lerp(new Vector3(this.transform.position.x, currentY, 0), new Vector3(this.transform.position.x,box.bounds.center.y,0),Time.deltaTime*5);
+		Debug.Log(this.transform.position.y);
+		if ((this.transform.position.y < box.bounds.center.y+1)&&(this.transform.position.y > box.bounds.center.y-1))
+		{
+			this.transform.position = new Vector2(this.transform.position.x, box.bounds.center.y);
+			go = false;
+		}
+	}
+
 	void Update () 
 	{
 		//When exhaling, move in paths
 		if(breathState == "Exhale")
 		{
 			//Checks if you are in the path
-			if (path)
+			if ((path)&&(go == false))
 			{
-			this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x, (breath*10)+flapSpeed);
+				this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x, (breath*10));
+				if ((breath > -1)&&(breath < 1))
+				{
+					if(go == false)
+					currentPath.transform.position = new Vector3 (currentPath.transform.position.x, this.transform.position.y, 0);
+					this.rigidbody2D.velocity = new Vector2(moveSpeed, this.rigidbody2D.velocity.y + flapSpeed);
+				}
+				else
+				{
+					this.rigidbody2D.velocity = new Vector2(0, this.rigidbody2D.velocity.y);
+				}
+
 			}
 			//If not in path
 			else
 			{
+				go = true;
+				CheckToMove();
 				//If you breath properly
 				if ((breath > -1)&&(breath < 1))
 				{
-					//If you went below go up
-					if (upDir == false)
-					{
-						this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x, (breath*10)+flapSpeed);
-					}
-					//If you went up go down
-					else if (center == false)
-					{
-						this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x, -(breath*10)-flapSpeed);
-					}
-					else
-					{
-						this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x,0);
-					}
 				}
 				//If you aren't breathing properly don't move higher or lower
 				else
@@ -62,31 +95,13 @@ public class MoveDragon : MonoBehaviour
 			}
 		}
 
-		//If you are in a path
-		if (path)
-		{
-			//If breathing properly move forward properly
-			if ((breath > -1)&&(breath < 1))
-			{
-				this.rigidbody2D.velocity = new Vector2(moveSpeed, this.rigidbody2D.velocity.y);
-			}
-			//Else if breathing too weak slow down
-			else if (breath < -1)
-			{
-				this.rigidbody2D.velocity = new Vector2(moveSpeed/9, this.rigidbody2D.velocity.y);
-			}
-			//Else if breathing too strong slow down
-			else if (breath > 1)
-			{
-				this.rigidbody2D.velocity = new Vector2(moveSpeed/9, this.rigidbody2D.velocity.y);
-			}
-		}
-
 		//When in Inhale, Glide
 		else if (breathState == "Inhale")
 		{
-
+			
 		}
+
+
 
 	}
 
@@ -95,10 +110,7 @@ public class MoveDragon : MonoBehaviour
 		if (other.gameObject.tag == "path")
 		{
 			path = true;
-		}
-		if (other.gameObject.tag == "center")
-		{
-			center = true;
+			currentPath = other.gameObject;
 		}
 	}
 
@@ -107,18 +119,7 @@ public class MoveDragon : MonoBehaviour
 		if (other.gameObject.tag == "path")
 		{
 			path = false;
-			if (breath < -1)
-			{
-				upDir = false;
-			}
-			else if (breath > 1)
-			{
-				upDir = true;
-			}
-		}
-		if (other.gameObject.tag == "center")
-		{
-			center = false;
+			currentPath = other.gameObject;
 		}
 	}
 
