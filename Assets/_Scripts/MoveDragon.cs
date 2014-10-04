@@ -62,14 +62,14 @@ public class MoveDragon : MonoBehaviour
 
 	void Update () 
 	{
-		if (inputManager.IdealState() == InputManager.IdealStateEnum.KeepExhaling)
-		{
-			breathState = "Exhale";
-		}
-		else if (inputManager.IdealState() == InputManager.IdealStateEnum.Inhale)
-		{
-			breathState = "Inhale";
-		}
+//		if (inputManager.IdealState == InputManager.IdealStateEnum.KeepExhaling)
+//		{
+//			breathState = "Exhale";
+//		}
+//		else if (inputManager.IdealState == InputManager.IdealStateEnum.Inhale)
+//		{
+//			breathState = "Inhale";
+//		}
 		//When exhaling, move in paths
 		if(breathState == "Exhale")
 		{
