@@ -5,6 +5,14 @@ using Bindings;
 
 public class InputManager : MonoBehaviour {
 
+	public enum IdealStateEnum
+	{
+		ReadyToBreath = 0,
+		KeepExhaling,
+		Inhale,
+		Rest
+	}
+
 	private MasterGenerator masterGenerator;
 	private float goodBreathRange;
 	private float halfGoodBreathRange;
@@ -12,9 +20,6 @@ public class InputManager : MonoBehaviour {
 	private float overblownRange;
 
 	private float underblownRange;
-
-//	private float currentBreath;
-
 
 	// For fetching the stuff
 	Property<float> breathStrength;
@@ -101,29 +106,8 @@ public class InputManager : MonoBehaviour {
 	{
 		get { return status.value; }
 	}
+	
 
-	public string GetSuccessBreath()
-	{
-		// They are ready
-
-		// Then they exhale
-
-		// Then once they pass a certain level, they are good
-
-		// Need to get the next status
-
-		// 
-
-		return "";
-	}
-
-	public enum IdealStateEnum
-	{
-		ReadyToBreath = 0,
-		KeepExhaling,
-		Inhale,
-		Rest
-	}
 
 	/// <summary>
 	/// Returns the ideal of the user right at this moment. Out is -1 if the percentage hasn't started
