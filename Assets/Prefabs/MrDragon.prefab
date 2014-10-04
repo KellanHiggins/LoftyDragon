@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -114.269989, y: .882369995, z: 0}
+  m_LocalPosition: {x: -91.3590012, y: 4.09789991, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -219,7 +219,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 10, y: 10.6399994}
   m_Center: {x: 0, y: 0}
 --- !u!61 &6100002
@@ -230,7 +230,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 100008}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 5.0999999, y: 250}
   m_Center: {x: 0, y: 0}
 --- !u!61 &6100004
@@ -241,7 +241,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 5.0999999, y: 250}
   m_Center: {x: 0, y: 0}
 --- !u!81 &8100000
@@ -273,6 +273,8 @@ MonoBehaviour:
   moveSpeed: 10
   glidingGravity: -1
   gravity: 0
+  jetStream: {fileID: 0}
+  inputManager: {fileID: 0}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
