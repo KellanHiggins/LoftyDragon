@@ -85,8 +85,8 @@ public class MoveDragon : MonoBehaviour
 				if ((breath > -1)&&(breath < 1))
 				{
 					if(go == false)
-					currentPath.transform.position = new Vector3 (currentPath.transform.position.x, this.transform.position.y, 0);
-					this.rigidbody2D.velocity = new Vector2(moveSpeed, this.rigidbody2D.velocity.y + (flapSpeed*2));
+						currentPath.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, 0);
+					this.rigidbody2D.velocity = new Vector2(moveSpeed, this.rigidbody2D.velocity.y + (flapSpeed*2f));
 					jetStream.renderer.material.color = Color.Lerp(jetStream.renderer.material.color,new Color(1f,1f,1f,1f),Time.deltaTime*3);
 					if (jetStreamStart == false)
 					{
@@ -97,7 +97,7 @@ public class MoveDragon : MonoBehaviour
 				}
 				else
 				{
-					this.rigidbody2D.velocity = new Vector2(0, this.rigidbody2D.velocity.y);
+					this.rigidbody2D.velocity = new Vector2(0, this.rigidbody2D.velocity.y*.7f);
 				}
 
 			}
@@ -121,7 +121,7 @@ public class MoveDragon : MonoBehaviour
 		//When in Inhale, Glide
 		else if (breathState == "Inhale")
 		{
-			currentPath.transform.position = new Vector3 (currentPath.transform.position.x, this.transform.position.y, 0);
+			currentPath.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, 0);
 			this.rigidbody2D.velocity = new Vector2(moveSpeed, -flapSpeed);
 			jetStreamStart = false;
 			jetStream.renderer.material.color = Color.Lerp(jetStream.renderer.material.color,new Color(1f,1f,1f,0f),Time.deltaTime);
