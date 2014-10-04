@@ -11,12 +11,16 @@ public class MoveDragon : MonoBehaviour
 	private bool go = false;
 	private GameObject currentPath;
 	private float currentY = 0;
+	private bool jetStreamStart = false;
 
 	public float glidingGravity = -1f;
 
 	public float gravity;
 	private InputManager.IdealStateEnum breathCheck;
 	private string breathState = "Exhale";
+
+	[SerializeField]
+	private GameObject jetStream;
 
 	[SerializeField]
 	private InputManager inputManager;
@@ -62,14 +66,14 @@ public class MoveDragon : MonoBehaviour
 
 	void Update () 
 	{
-//		if (inputManager.IdealState == InputManager.IdealStateEnum.KeepExhaling)
-//		{
-//			breathState = "Exhale";
-//		}
-//		else if (inputManager.IdealState == InputManager.IdealStateEnum.Inhale)
-//		{
-//			breathState = "Inhale";
-//		}
+		if (inputManager.BreathingStatus == enumStatus.Exhale)
+		{
+			breathState = "Exhale";
+		}
+		else if (inputManager.BreathingStatus == enumStatus.Inhale)
+		{
+			breathState = "Inhale";
+		}
 		//When exhaling, move in paths
 		if(breathState == "Exhale")
 		{
@@ -82,7 +86,14 @@ public class MoveDragon : MonoBehaviour
 				{
 					if(go == false)
 					currentPath.transform.position = new Vector3 (currentPath.transform.position.x, this.transform.position.y, 0);
-					this.rigidbody2D.velocity = new Vector2(moveSpeed, this.rigidbody2D.velocity.y + flapSpeed);
+					this.rigidbody2D.velocity = new Vector2(moveSpeed, this.rigidbody2D.velocity.y + (flapSpeed*2));
+					jetStream.renderer.material.color = Color.Lerp(jetStream.renderer.material.color,new Color(1f,1f,1f,1f),Time.deltaTime*3);
+					if (jetStreamStart == false)
+					{
+						jetStream.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, 0);
+						//jetStream.renderer.material.color = new Color(1f,1f,1f,1f);
+						jetStreamStart = true;
+					}
 				}
 				else
 				{
@@ -110,7 +121,11 @@ public class MoveDragon : MonoBehaviour
 		//When in Inhale, Glide
 		else if (breathState == "Inhale")
 		{
-			
+			currentPath.transform.position = new Vector3 (currentPath.transform.position.x, this.transform.position.y, 0);
+			this.rigidbody2D.velocity = new Vector2(moveSpeed, -flapSpeed);
+			jetStreamStart = false;
+			jetStream.renderer.material.color = Color.Lerp(jetStream.renderer.material.color,new Color(1f,1f,1f,0f),Time.deltaTime);
+
 		}
 
 
