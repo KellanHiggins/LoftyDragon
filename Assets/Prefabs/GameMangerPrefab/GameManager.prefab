@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
-  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -41,6 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdafbb37334b437793d7bf2462fd32c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputManager: {fileID: 0}
   currentScore: 0
   currentlyScoringType: 0
   GoodScoreNum: 100
@@ -48,6 +48,7 @@ MonoBehaviour:
   AwesomeScoreNum: 225
   AmazingScoreNum: 350
   score: {fileID: 0}
+  feedback: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,20 +67,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3ff09c845d764cd7823d734d3127e65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cloudNumber: 20
-  cloudNewLocation: {fileID: 0}
-  cloudPrefab: {fileID: 100000, guid: fb6f6aa9695424c889b151376364c4ef, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
