@@ -46,8 +46,9 @@ public class ScoringManager : MonoBehaviour {
 				thisRoundScoreNumber = AwesomeScoreNum;
 				break;
 
-			case ScoreType:
+			case ScoreType.Amazing:
 				thisRoundScoreNumber = AmazingScoreNum;
+				break;
 			
 			default:
 				thisRoundScoreNumber = 0;
