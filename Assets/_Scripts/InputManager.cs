@@ -39,6 +39,12 @@ public class InputManager : MonoBehaviour {
 	float exhaleTimeMax = 0;
 	float exhaleTimeMedium = 0;
 
+	public float ExhaleTimeMax{
+		get{return exhaleTimeMax;}}
+	public float ExhaleTimeMin{
+		get{return exhaleTimeMin;}}
+	public float ExhaleCurrent{
+		get{return breathLength.value;}}
 	// Use this for initialization
 	void Start () 
 	{
