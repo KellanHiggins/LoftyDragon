@@ -113,41 +113,40 @@ public class InputManager : MonoBehaviour {
 	/// Returns the ideal of the user right at this moment. Out is -1 if the percentage hasn't started
 	/// </summary>
 	/// <returns>The state.</returns>
-	public IdealStateEnum IdealState(out float breathCompletePercentage)
+	public float IdealStatePercentage()
 	{
-		breathCompletePercentage = -1;
-		if(this.BreathingStatus == enumStatus.Ready)
+		if(this.BreathingStatus == enumStatus.Exhale && IdealState == IdealStateEnum.KeepExhaling)
 		{
+			return thisBreathLength / this.exhaleTimeMedium;
+		}
+
+		return -1;
+	}
+
+	public IdealStateEnum IdealState
+	{
+		get 
+		{ 
+			if(this.BreathingStatus == enumStatus.Ready)
+			{
+				return IdealStateEnum.ReadyToBreath;
+			}
+			if(this.BreathingStatus == enumStatus.Exhale)
+			{
+				if(thisBreathLength < this.exhaleTimeMedium)
+				{
+					return IdealStateEnum.KeepExhaling;
+				}
+				else
+				{
+					return IdealStateEnum.Inhale;
+				}
+			}
+			
 			return IdealStateEnum.ReadyToBreath;
 		}
-		if(this.BreathingStatus == enumStatus.Exhale)
-		{
-			breathCompletePercentage = thisBreathLength / this.exhaleTimeMedium;
-			// Check to see if the breath is good.
-			if(thisBreathLength < this.exhaleTimeMedium)
-			{
-				return IdealStateEnum.KeepExhaling;
-			}
-			else
-			{
-				return IdealStateEnum.Inhale;
-			}
-		}
-
-		return IdealStateEnum.ReadyToBreath;
 	}
-
-
 	
-	// Update is called once per frame
-	void Update () 
-	{
-		float percentage;
-		Debug.Log(IdealState(out percentage));
-		if(percentage > 0)
-			Debug.Log(percentage * 100f);
-	}
-
 	// Grabs the info from the properties and updates the local private variables
 
 	private void UpdateBreath(float strength)
