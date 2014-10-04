@@ -17,7 +17,6 @@ public class IdealStateUpdater : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		float percentage;
-		text.text = inputManager.IdealState(out percentage).ToString();
+		text.text = inputManager.IdealState.ToString();
 	}
 }
