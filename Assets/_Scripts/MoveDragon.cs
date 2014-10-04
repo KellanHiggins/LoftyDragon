@@ -15,8 +15,11 @@ public class MoveDragon : MonoBehaviour
 	public float glidingGravity = -1f;
 
 	public float gravity;
-
+	private InputManager.IdealStateEnum breathCheck;
 	private string breathState = "Exhale";
+
+	[SerializeField]
+	private InputManager inputManager;
 
 	void Start () 
 	{
@@ -59,9 +62,18 @@ public class MoveDragon : MonoBehaviour
 
 	void Update () 
 	{
+		if (inputManager.IdealState() == InputManager.IdealStateEnum.KeepExhaling)
+		{
+			breathState = "Exhale";
+		}
+		else if (inputManager.IdealState() == InputManager.IdealStateEnum.Inhale)
+		{
+			breathState = "Inhale";
+		}
 		//When exhaling, move in paths
 		if(breathState == "Exhale")
 		{
+			breath = inputManager.GetFlyingControl(); 
 			//Checks if you are in the path
 			if ((path)&&(go == false))
 			{

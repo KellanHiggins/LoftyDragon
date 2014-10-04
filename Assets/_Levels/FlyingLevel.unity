@@ -555,6 +555,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: fa0fc62524f980f409be189d79516039, type: 2}
+      propertyPath: inputManager
+      value: 
+      objectReference: {fileID: 1238753250}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa0fc62524f980f409be189d79516039, type: 2}
   m_RootGameObject: {fileID: 418172289}
@@ -689,6 +693,7 @@ MonoBehaviour:
   moveSpeed: 10
   glidingGravity: -1
   gravity: 0
+  inputManager: {fileID: 1238753250}
 --- !u!50 &418172293
 Rigidbody2D:
   m_ObjectHideFlags: 0
