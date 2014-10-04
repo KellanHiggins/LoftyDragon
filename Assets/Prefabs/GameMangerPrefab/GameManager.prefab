@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,6 +46,24 @@ MonoBehaviour:
   GreatScoreNum: 150
   AwesomeScoreNum: 225
   AmazingScoreNum: 350
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9861e7c0ebd5b44e3ac1ac4a6a52a641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CloudDestroyer: {fileID: 0}
+  CloudGenerator: {fileID: 0}
+  cloudPrefab: {fileID: 100000, guid: fb6f6aa9695424c889b151376364c4ef, type: 2}
+  CloudLayerHolders:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

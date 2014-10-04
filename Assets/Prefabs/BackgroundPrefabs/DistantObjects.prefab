@@ -25,8 +25,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400002}
-  - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
+  - 50: {fileID: 5000000}
   m_Layer: 0
   m_Name: DistantObjects
   m_TagString: Untagged
@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  movementXModPercentage: 50
-  movementYModPercentage: 50
+  movementXModPercentage: -89
+  movementYModPercentage: 0
   renderLayer: -4
 --- !u!212 &21200000
 SpriteRenderer:
