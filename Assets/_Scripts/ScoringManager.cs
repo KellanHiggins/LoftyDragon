@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ScoringManager : MonoBehaviour {
 
@@ -20,6 +21,8 @@ public class ScoringManager : MonoBehaviour {
 	public int GreatScoreNum = 150;
 	public int AwesomeScoreNum = 225;
 	public int AmazingScoreNum = 350;
+	[SerializeField]
+	private Text score;
 
 	void Update () 
 	{
@@ -56,6 +59,7 @@ public class ScoringManager : MonoBehaviour {
 			}
 
 			currentScore += Mathf.RoundToInt(GoodScoreNum * Time.deltaTime);
+			score.text = "Points: " + currentScore;
 		}
 	}
 
