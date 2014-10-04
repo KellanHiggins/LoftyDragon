@@ -37,7 +37,7 @@ public class CloudGenerator : MonoBehaviour {
 			// find a random point along the cloud generator
 			Debug.Log(cloudNewLocation.collider2D.bounds.min.y);
 
-			float randomRange = Random.Range(cloudNewLocation.collider2D.bounds.min.y / 2, cloudNewLocation.collider2D.bounds.max.x / 2);
+			float randomRange = Random.Range(cloudNewLocation.collider2D.bounds.min.y, cloudNewLocation.collider2D.bounds.max.y);
 
 			Vector3 newCloudPos = new Vector3(cloudNewLocation.transform.position.x, cloudNewLocation.transform.position.y + randomRange, transform.position.z);
 			GameObject newCloud = GameObject.Instantiate(cloudPrefab, newCloudPos, Quaternion.identity) as GameObject;

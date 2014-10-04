@@ -231,7 +231,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 5.0999999, y: 250}
+  m_Size: {x: 5.0999999, y: 150}
   m_Center: {x: 0, y: 0}
 --- !u!61 &6100004
 BoxCollider2D:
@@ -242,7 +242,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 5.0999999, y: 250}
+  m_Size: {x: 5.0999999, y: 150}
   m_Center: {x: 0, y: 0}
 --- !u!81 &8100000
 AudioListener:
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flapSpeed: 5
-  moveSpeed: 10
+  moveSpeed: 25
   glidingGravity: -1
   gravity: 0
   jetStream: {fileID: 0}
