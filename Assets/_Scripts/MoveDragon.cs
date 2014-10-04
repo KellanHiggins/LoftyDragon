@@ -62,11 +62,11 @@ public class MoveDragon : MonoBehaviour
 
 	void Update () 
 	{
-		if (inputManager.IdealState() == InputManager.IdealStateEnum.KeepExhaling)
+		if (inputManager.BreathingStatus == enumStatus.Exhale)
 		{
 			breathState = "Exhale";
 		}
-		else if (inputManager.IdealState() == InputManager.IdealStateEnum.Inhale)
+		else if (inputManager.BreathingStatus == enumStatus.Inhale)
 		{
 			breathState = "Inhale";
 		}
@@ -82,7 +82,7 @@ public class MoveDragon : MonoBehaviour
 				{
 					if(go == false)
 					currentPath.transform.position = new Vector3 (currentPath.transform.position.x, this.transform.position.y, 0);
-					this.rigidbody2D.velocity = new Vector2(moveSpeed, this.rigidbody2D.velocity.y + flapSpeed);
+					this.rigidbody2D.velocity = new Vector2(moveSpeed, this.rigidbody2D.velocity.y + (flapSpeed*2));
 				}
 				else
 				{
@@ -110,7 +110,9 @@ public class MoveDragon : MonoBehaviour
 		//When in Inhale, Glide
 		else if (breathState == "Inhale")
 		{
-			
+			currentPath.transform.position = new Vector3 (currentPath.transform.position.x, this.transform.position.y, 0);
+			this.rigidbody2D.velocity = new Vector2(moveSpeed, -flapSpeed);
+
 		}
 
 
