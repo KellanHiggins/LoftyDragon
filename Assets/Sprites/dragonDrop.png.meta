@@ -1,0 +1,113 @@
+fileFormatVersion: 2
+guid: b3563f3c2946d414c8b732c0df101498
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: dragonDrop_0
+    21300002: dragonDrop_1
+    21300004: dragonDrop_2
+    21300006: dragonDrop_3
+    21300008: dragonDrop_4
+    21300010: dragonDrop_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: dragonDrop_0
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 1426
+        width: 664
+        height: 592
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dragonDrop_1
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 1449
+        width: 698
+        height: 588
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dragonDrop_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 802
+        width: 697
+        height: 588
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dragonDrop_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 855
+        width: 697
+        height: 539
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dragonDrop_4
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 134
+        width: 697
+        height: 588
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dragonDrop_5
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 130
+        width: 698
+        height: 588
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
