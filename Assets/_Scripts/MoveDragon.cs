@@ -55,7 +55,7 @@ public class MoveDragon : MonoBehaviour
 	void MoveMe()
 	{
 		BoxCollider2D box = currentPath.GetComponent("BoxCollider2D")as BoxCollider2D;
-		this.transform.position = Vector3.Lerp(new Vector3(this.transform.position.x, currentY, 0), new Vector3(this.transform.position.x+5,box.bounds.center.y,0),Time.deltaTime*3);
+		this.transform.position = Vector3.Lerp(new Vector3(this.transform.position.x, currentY, 0), new Vector3(this.transform.position.x,box.bounds.center.y,0),Time.deltaTime*5);
 		Debug.Log(this.transform.position.y);
 		if ((this.transform.position.y < box.bounds.center.y+1)&&(this.transform.position.y > box.bounds.center.y-1))
 		{
@@ -91,6 +91,7 @@ public class MoveDragon : MonoBehaviour
 					if (jetStreamStart == false)
 					{
 						jetStream.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, 0);
+						//jetStream.renderer.material.color = new Color(1f,1f,1f,1f);
 						jetStreamStart = true;
 					}
 				}

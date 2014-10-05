@@ -54,21 +54,21 @@ public class ScoringManager : MonoBehaviour {
 		}
 		else if ((inputManager.ExhaleCurrent < 2.5)&&(feedbackUpdate == 1)&&(inputManager.ExhaleCurrent > 1.5))
 		{
-			feedback.color = new Color(0f,0f,1f,1f);
+			feedback.color = new Color(1f,1f,1f,1f);
 			feedback.transform.position = feedbackStartPos;
 			feedback.text = "Great!";
 			feedbackUpdate = 2;
 		}
 		else if ((inputManager.ExhaleCurrent < 3.5)&&(feedbackUpdate == 2)&&(inputManager.ExhaleCurrent > 2.5))
 		{
-			feedback.color = new Color(1f,0f,1f,1f);
+			feedback.color = new Color(1f,1f,1f,1f);
 			feedback.transform.position = feedbackStartPos;
 			feedback.text = "Awesome!!!";
 			feedbackUpdate = 3;
 		}
 		else if ((inputManager.ExhaleCurrent < 4)&&(feedbackUpdate == 3)&&(inputManager.ExhaleCurrent > 3.5))
 		{
-			feedback.color = new Color(1f,1f,0f,1f);
+			feedback.color = new Color(1f,1f,1f,1f);
 			feedback.transform.position = feedbackStartPos;
 			feedback.text = "AMAZING!!!";
 			feedbackUpdate = 0;
