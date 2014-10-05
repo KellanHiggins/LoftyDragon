@@ -22,13 +22,19 @@ public class InputManager : MonoBehaviour {
 	private float underblownRange;
 
 	// For fetching the stuff
-	Property<float> breathStrength;
-	Property<enumStatus> status;
-	Property<float> breathLength;
-	Property<bool> goodSet;
-	Property<int> breathCountGood;
-	Property<bool> breathGood;
-	Property<int> setCount;
+	Property<float> breathStrengthProp;
+	Property<enumStatus> statusProp;
+	Property<float> breathLengthProp;
+	Property<bool> goodSetProp;
+	Property<int> breathCountGoodProp;
+	Property<bool> breathGoodProp;
+	Property<int> setCountProp;
+	Property<int> targetBreathNumberProp;
+	Property<int> maxBreathNumberProp;
+	Property<int> breathCountProp;
+
+	Property<int> breathMinProp;
+
 //	Property<float> minExhaleTime;
 
 	private float currentBreath = 0;
@@ -36,6 +42,11 @@ public class InputManager : MonoBehaviour {
 	private float thisBreathLength;
 	private int goodBreathCount;
 	private bool setIsGood;
+	private int setCount;
+
+
+	private int hackSetCount = 0;
+
 
 	float exhalePresMin = 0;
 	float exhalePresMax = 0;
@@ -44,14 +55,26 @@ public class InputManager : MonoBehaviour {
 	float exhaleTimeMin = 0;
 	float exhaleTimeMax = 0;
 	float exhaleTimeMedium = 0;
+	int breathCountMin = 12;
+	int breathCountTarget = 15;
+	int maxBreathNumber = 20;
 
 	public float ExhaleTimeMax{
 		get{return exhaleTimeMax;}}
 	public float ExhaleTimeMin{
 		get{return exhaleTimeMin;}}
 	public float ExhaleCurrent{
-		get{return breathLength.value;}}
-	// Use this for initialization
+		get{return breathLengthProp.value;}}
+
+
+	// Game changing bools
+	private bool playMiniGame = false;
+	public bool PlayMiniGame { get { return playMiniGame; } }
+
+	private bool hackFinish = false;
+	public bool HackFinish { get { return hackFinish; } }
+
+
 	void Start () 
 	{
 		// Initial status for the max and mins
@@ -63,6 +86,11 @@ public class InputManager : MonoBehaviour {
 		exhaleTimeMax = Binding<float>.GetBinding("ExhaleTimeMax").value();
 		exhaleTimeMedium = (exhaleTimeMax - exhaleTimeMin) / 2 + exhaleTimeMin;
 
+		breathCountMin = Binding<int>.GetBinding("BreathsMin").value();
+//		breathCountTarget = Binding<int>.GetBinding("BreathsTarget").value();
+		maxBreathNumber = Binding<int>.GetBinding("BreathsMax").value();
+
+
 		masterGenerator = GameObject.FindObjectOfType<MasterGenerator>();
 
 		// Figure out the ranges
@@ -71,32 +99,40 @@ public class InputManager : MonoBehaviour {
 		underblownRange = exhalePresMin - exhalePressMinFloor;
 
 		// Binding the status
-		status = new Property<enumStatus>(enumStatus.Initializing);
-		status.AddToBinding("Status", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
-		status.AddListener(StatusUpdate);
+		statusProp = new Property<enumStatus>(enumStatus.Initializing);
+		statusProp.AddToBinding("Status", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
+		statusProp.AddListener(StatusUpdate);
 
 		// Binding the length of the current breath
-		breathLength = new Property<float>(0);
-		breathLength.AddToBinding("BreathLength", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
-		breathLength.AddListener(BreathLengthUpdate);
+		breathLengthProp = new Property<float>(0);
+		breathLengthProp.AddToBinding("BreathLength", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
+		breathLengthProp.AddListener(BreathLengthUpdate);
 
 		// Binding to the Breath
-		breathStrength = new Property<float>(0);
-		breathStrength.AddToBinding("BreathStrength", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
-		breathStrength.AddListener(UpdateBreath);
+		breathStrengthProp = new Property<float>(0);
+		breathStrengthProp.AddToBinding("BreathStrength", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
+		breathStrengthProp.AddListener(UpdateBreath);
 
 		// Binding to the currentSet
-		goodSet = new Property<bool>(false);
-		goodSet.AddToBinding("SetIsGood", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
-		goodSet.AddListener(SetGoodUpdate);
+		goodSetProp = new Property<bool>(false);
+		goodSetProp.AddToBinding("SetIsGood", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
+		goodSetProp.AddListener(SetGoodUpdate);
 
-		breathCountGood = new Property<int>(0);
-		breathCountGood.AddToBinding("BreathCountGood", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
-		breathCountGood.AddListener(GoodBreathCountUpdate);
+		breathCountGoodProp = new Property<int>(0);
+		breathCountGoodProp.AddToBinding("BreathCountGood", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
+		breathCountGoodProp.AddListener(GoodBreathCountUpdate);
 
-		breathGood = new Property<bool>(false);
-		breathGood.AddToBinding("BreathIsGood", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
-		breathGood.AddListener(BreathGood);
+		breathGoodProp = new Property<bool>(false);
+		breathGoodProp.AddToBinding("BreathIsGood", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
+		breathGoodProp.AddListener(BreathGood);
+
+		breathCountProp = new Property<int>(0);
+		breathCountProp.AddToBinding("BreathCount", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
+
+		setCountProp = new Property<int>(0);
+		setCountProp.AddToBinding("SetCount", BindingDirection.BiDirectional, AssignmentOnAdd.TakeBindingValue);
+		setCountProp.AddListener(SetCountUpdate);
+
 
 	}
 
@@ -129,7 +165,7 @@ public class InputManager : MonoBehaviour {
 
 	public enumStatus BreathingStatus
 	{
-		get { return status.value; }
+		get { return statusProp.value; }
 	}
 	
 
@@ -168,8 +204,6 @@ public class InputManager : MonoBehaviour {
 				}
 			}
 
-//			if()
-
 			return IdealStateEnum.ReadyToBreath;
 		}
 	}
@@ -178,8 +212,20 @@ public class InputManager : MonoBehaviour {
 
 	void Update()
 	{
-//		Debug.Log("Set is " + setIsGood + " GoodbreathCount " + goodBreathCount);
+//		if( breathCountProp.value >= 2 && hackFinish != true) // NOTE: set to 2 to ensure we don't take forever to test.
+//		{
+//			hackSetCount += 1;
+//			playMiniGame = true;
+//			Debug.Log("Set finished");
+//		}
+//		if(hackSetCount > 2) // NOTE: Set this to the set count numbers from the program
+//		{
+//			hackFinish = true;
+//			Debug.Log("Game finished");
+//		}
 	}
+
+
 
 
 	private void UpdateBreath(float strength)
@@ -199,12 +245,18 @@ public class InputManager : MonoBehaviour {
 
 	private void SetGoodUpdate(bool setGood)
 	{
-		setIsGood = setGood;
+		setIsGood = setGood;	
 	}
 
 	private void GoodBreathCountUpdate(int num)
 	{
 		goodBreathCount = num;
+	}
+
+	private void SetCountUpdate(int num)
+	{
+		setCount = num;
+		Debug.Log("Number of Set Counts" + num);
 	}
 
 	private void BreathGood(bool goodBreath)
