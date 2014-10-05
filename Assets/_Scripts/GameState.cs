@@ -82,10 +82,10 @@ public class GameState : MonoBehaviour {
 		minSetNum = Binding<int>.GetBinding("SetsMin").value();
 
 		// Delete before publishing TODO
-		maxBreathCount = 5;
-		breathsMin = 2;
-		minRestTime = 5;
-		minSetNum = 2;
+//		maxBreathCount = 5;
+//		breathsMin = 2;
+//		minRestTime = 5;
+//		minSetNum = 2;
 	}
 	
 	// Update is called once per frame
