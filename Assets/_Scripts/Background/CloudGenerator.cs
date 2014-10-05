@@ -24,10 +24,10 @@ public class CloudGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-//		if(Random.Range(0, 100) < cloudGenPercentage)
-//		{
-//			CreateCloud();
-//		}
+		if(Random.Range(0, 100) < cloudGenPercentage)
+		{
+			CreateCloud();
+		}
 	}
 
 	private void CreateCloud()
