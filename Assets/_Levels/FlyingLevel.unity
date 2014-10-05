@@ -81,6 +81,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400002, guid: 6c1d98211deaf49a79fcde3ec0f38752, type: 2}
+      propertyPath: cloudPrefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6c1d98211deaf49a79fcde3ec0f38752, type: 2}
       propertyPath: m_LocalPosition.x
       value: 48.962265
@@ -153,6 +157,22 @@ Prefab:
       propertyPath: breaths
       value: 
       objectReference: {fileID: 1718159140}
+    - target: {fileID: 11400002, guid: 6c1d98211deaf49a79fcde3ec0f38752, type: 2}
+      propertyPath: cloudPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 100000, guid: 43ad7f72eb646c54b81cd02a52030ae7, type: 2}
+    - target: {fileID: 11400002, guid: 6c1d98211deaf49a79fcde3ec0f38752, type: 2}
+      propertyPath: cloudPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 100000, guid: 700d56035cb0a3c45a6dfa6e9f6fbb5f, type: 2}
+    - target: {fileID: 11400002, guid: 6c1d98211deaf49a79fcde3ec0f38752, type: 2}
+      propertyPath: cloudPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 100000, guid: 14caeaebcb7de0d43a29890c7f55d138, type: 2}
+    - target: {fileID: 11400002, guid: 6c1d98211deaf49a79fcde3ec0f38752, type: 2}
+      propertyPath: cloudPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 100000, guid: 3e29c0aa83cba6845b055e132ef25a9c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c1d98211deaf49a79fcde3ec0f38752, type: 2}
   m_RootGameObject: {fileID: 562176433}
@@ -973,7 +993,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CloudDestroyer: {fileID: 1614054335}
   CloudGenerator: {fileID: 609968367}
-  cloudPrefab: {fileID: 100000, guid: fb6f6aa9695424c889b151376364c4ef, type: 2}
+  cloudPrefabs:
+  - {fileID: 100000, guid: 43ad7f72eb646c54b81cd02a52030ae7, type: 2}
+  - {fileID: 100000, guid: 700d56035cb0a3c45a6dfa6e9f6fbb5f, type: 2}
+  - {fileID: 100000, guid: 14caeaebcb7de0d43a29890c7f55d138, type: 2}
+  - {fileID: 100000, guid: 3e29c0aa83cba6845b055e132ef25a9c, type: 2}
   CloudLayerHolders:
   - {fileID: 497496279}
   - {fileID: 1270218920}
