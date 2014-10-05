@@ -53,8 +53,8 @@ TextureImporter:
         y: 1566
         width: 802
         height: 471
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .60181886, y: .563569844}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonGlide_1
       rect:
@@ -63,8 +63,8 @@ TextureImporter:
         y: 1607
         width: 798
         height: 420
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .602329314, y: .545365691}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonGlide_2
       rect:
@@ -73,8 +73,8 @@ TextureImporter:
         y: 1131
         width: 802
         height: 442
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .612000763, y: .561582565}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

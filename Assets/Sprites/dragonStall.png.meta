@@ -43,7 +43,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 40
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -56,8 +56,8 @@ TextureImporter:
         y: 1459
         width: 576
         height: 502
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .594512403, y: .456622005}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonStall_1
       rect:
@@ -66,8 +66,8 @@ TextureImporter:
         y: 1395
         width: 526
         height: 555
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .613846242, y: .544139504}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonStall_2
       rect:
@@ -76,8 +76,8 @@ TextureImporter:
         y: 1387
         width: 520
         height: 505
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .683208764, y: .640139878}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonStall_3
       rect:
@@ -86,8 +86,8 @@ TextureImporter:
         y: 710
         width: 527
         height: 556
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .623960137, y: .544060349}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonStall_4
       rect:
@@ -96,8 +96,8 @@ TextureImporter:
         y: 729
         width: 507
         height: 529
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .704012454, y: .597763777}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonStall_5
       rect:
@@ -106,8 +106,8 @@ TextureImporter:
         y: 808
         width: 521
         height: 507
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .661958933, y: .644955993}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

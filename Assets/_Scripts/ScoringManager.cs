@@ -90,93 +90,96 @@ public class ScoringManager : MonoBehaviour {
 	
 	void Update () 
 	{
-		if (gameState.CurrentGameState != GameState.GameStatesEnum.RestBetweenSets)
+		if(gameState != null)
 		{
-			if (gameState.CurrentBreath > 0)
+			if ( gameState.CurrentGameState != GameState.GameStatesEnum.RestBetweenSets)
 			{
-				breaths.text = "Breath " + gameState.CurrentBreath + "/15";
+				if (gameState.CurrentBreath > 0)
+				{
+					breaths.text = "Breath " + gameState.CurrentBreath + "/15";
+				}
+				if ((inputManager.ExhaleCurrent >= inputManager.ExhaleTimeMin)&&(canScore == true))
+				{
+					if (inputManager.ExhaleCurrent < 1.5f)
+					{
+						IncreaseScore(ScoreType.Good);
+						score.text = "Points: " + currentScore;
+						//feedback.text = "Good";
+						UpdateFeedback();
+					}
+					else if (inputManager.ExhaleCurrent < 2.5)
+					{
+						IncreaseScore(ScoreType.Great);
+						score.text = "Points: " + currentScore;
+						//feedback.text = "Great!";
+						UpdateFeedback();
+					}
+					else if (inputManager.ExhaleCurrent < 3.5)
+					{
+						IncreaseScore(ScoreType.Awesome);
+						score.text = "Points: " + currentScore;
+						//feedback.text = "Awesome!!!";
+						UpdateFeedback();
+					}
+					else if (inputManager.ExhaleCurrent < 4)
+					{
+						IncreaseScore(ScoreType.Amazing);
+						score.text = "Points: " + currentScore;
+						//feedback.text = "AMAZING!!!";
+						UpdateFeedback();
+					}
+				}
+				else
+				{
+					StopScoring();
+					feedbackUpdate = 0;
+					feedback.text = "";
+				}
+				if(currentlyScoringType != ScoreType.NoScoring)
+				{
+					// What the score is this round.
+					int thisRoundScoreNumber = 0;
+
+					// checks to see what type of scoring will be going on
+					switch(currentlyScoringType)
+					{
+					case ScoreType.NoScoring:
+						thisRoundScoreNumber = 0;
+						break;
+					case ScoreType.Good:
+						thisRoundScoreNumber = GoodScoreNum;
+						break;
+
+					case ScoreType.Great:
+						thisRoundScoreNumber = GreatScoreNum;
+						break;
+
+					case ScoreType.Awesome:
+						thisRoundScoreNumber = AwesomeScoreNum;
+						break;
+
+					case ScoreType.Amazing:
+						thisRoundScoreNumber = AmazingScoreNum;
+						break;
+					
+					default:
+						thisRoundScoreNumber = 0;
+						break;
+					}
+
+					currentScore += Mathf.RoundToInt(GoodScoreNum * Time.deltaTime);
+				}
 			}
-			if ((inputManager.ExhaleCurrent >= inputManager.ExhaleTimeMin)&&(canScore == true))
-			{
-				if (inputManager.ExhaleCurrent < 1.5f)
-				{
-					IncreaseScore(ScoreType.Good);
-					score.text = "Points: " + currentScore;
-					//feedback.text = "Good";
-					UpdateFeedback();
-				}
-				else if (inputManager.ExhaleCurrent < 2.5)
-				{
-					IncreaseScore(ScoreType.Great);
-					score.text = "Points: " + currentScore;
-					//feedback.text = "Great!";
-					UpdateFeedback();
-				}
-				else if (inputManager.ExhaleCurrent < 3.5)
-				{
-					IncreaseScore(ScoreType.Awesome);
-					score.text = "Points: " + currentScore;
-					//feedback.text = "Awesome!!!";
-					UpdateFeedback();
-				}
-				else if (inputManager.ExhaleCurrent < 4)
-				{
-					IncreaseScore(ScoreType.Amazing);
-					score.text = "Points: " + currentScore;
-					//feedback.text = "AMAZING!!!";
-					UpdateFeedback();
-				}
-			}
+			//If the set is over
 			else
 			{
-				StopScoring();
-				feedbackUpdate = 0;
-				feedback.text = "";
+				canScore = false;
+				scoreFin.enabled = true;
+				gameOver.enabled = true;
+				scoreFin.text = "Points: " + currentScore;
+				score.enabled = false;
+				feedback.enabled = false;
 			}
-			if(currentlyScoringType != ScoreType.NoScoring)
-			{
-				// What the score is this round.
-				int thisRoundScoreNumber = 0;
-
-				// checks to see what type of scoring will be going on
-				switch(currentlyScoringType)
-				{
-				case ScoreType.NoScoring:
-					thisRoundScoreNumber = 0;
-					break;
-				case ScoreType.Good:
-					thisRoundScoreNumber = GoodScoreNum;
-					break;
-
-				case ScoreType.Great:
-					thisRoundScoreNumber = GreatScoreNum;
-					break;
-
-				case ScoreType.Awesome:
-					thisRoundScoreNumber = AwesomeScoreNum;
-					break;
-
-				case ScoreType.Amazing:
-					thisRoundScoreNumber = AmazingScoreNum;
-					break;
-				
-				default:
-					thisRoundScoreNumber = 0;
-					break;
-				}
-
-				currentScore += Mathf.RoundToInt(GoodScoreNum * Time.deltaTime);
-			}
-		}
-		//If the set is over
-		else
-		{
-			canScore = false;
-			scoreFin.enabled = true;
-			gameOver.enabled = true;
-			scoreFin.text = "Points: " + currentScore;
-			score.enabled = false;
-			feedback.enabled = false;
 		}
 	}
 
