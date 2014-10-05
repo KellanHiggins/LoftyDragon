@@ -31,7 +31,6 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
   - 212: {fileID: 21200000}
-  - 4: {fileID: 400010}
   m_Layer: 0
   m_Name: MrDragon
   m_TagString: Untagged
@@ -113,7 +112,7 @@ Transform:
   m_LocalPosition: {x: 35.4259987, y: 0, z: -1.00999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 22400000}
   m_RootOrder: 0
 --- !u!4 &400002
 Transform:
@@ -150,8 +149,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 22400000}
+  m_RootOrder: 2
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -163,20 +162,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
---- !u!4 &400010
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 22400000}
+  m_RootOrder: 1
 --- !u!20 &2000000
 Camera:
   m_ObjectHideFlags: 1
@@ -255,7 +242,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 5.0999999, y: 150}
+  m_Size: {x: 5.0999999, y: 1000}
   m_Center: {x: 0, y: 0}
 --- !u!81 &8100000
 AudioListener:
@@ -367,9 +354,18 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 400000}
+  - {fileID: 400008}
+  - {fileID: 400006}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_Position: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 10.6399994}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
