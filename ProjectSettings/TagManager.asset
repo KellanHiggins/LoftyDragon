@@ -43,3 +43,7 @@ TagManager:
     userID: 0
     uniqueID: 0
     locked: 0
+  - name: Dragon
+    userID: 1
+    uniqueID: 1543097103
+    locked: 0
