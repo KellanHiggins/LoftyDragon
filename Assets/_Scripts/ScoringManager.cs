@@ -13,6 +13,9 @@ public class ScoringManager : MonoBehaviour {
 		Amazing
 	}
 
+	[SerializeField]
+	private InputManager inputManager;
+
 	public int currentScore;
 
 	public ScoreType currentlyScoringType;
@@ -23,9 +26,47 @@ public class ScoringManager : MonoBehaviour {
 	public int AmazingScoreNum = 350;
 	[SerializeField]
 	private Text score;
+	[SerializeField]
+	private Text feedback;
+
+	void Start()
+	{
+		feedback.text = "";
+	}
 
 	void Update () 
 	{
+		if (inputManager.ExhaleCurrent >= inputManager.ExhaleTimeMin)
+		{
+			if (inputManager.ExhaleCurrent < 1.5f)
+			{
+				IncreaseScore(ScoreType.Good);
+				score.text = "Points: " + currentScore;
+				feedback.text = "Good";
+			}
+			else if (inputManager.ExhaleCurrent < 2.5)
+			{
+				IncreaseScore(ScoreType.Great);
+				score.text = "Points: " + currentScore;
+				feedback.text = "Great!";
+			}
+			else if (inputManager.ExhaleCurrent < 3.5)
+			{
+				IncreaseScore(ScoreType.Awesome);
+				score.text = "Points: " + currentScore;
+				feedback.text = "Awesome!!!";
+			}
+			else if (inputManager.ExhaleCurrent < 4)
+			{
+				IncreaseScore(ScoreType.Amazing);
+				score.text = "Points: " + currentScore;
+				feedback.text = "AMAZING!!!";
+			}
+		}
+		else
+		{
+			feedback.text = "";
+		}
 		if(currentlyScoringType != ScoreType.NoScoring)
 		{
 			// What the score is this round.
@@ -59,7 +100,6 @@ public class ScoringManager : MonoBehaviour {
 			}
 
 			currentScore += Mathf.RoundToInt(GoodScoreNum * Time.deltaTime);
-			score.text = "Points: " + currentScore;
 		}
 	}
 
