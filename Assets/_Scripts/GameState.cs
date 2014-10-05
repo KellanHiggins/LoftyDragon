@@ -67,7 +67,7 @@ public class GameState : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		DontDestroyOnLoad(this);
+//		DontDestroyOnLoad(this);
 
 		breathLength = new Property<float>(0);
 		breathLength.AddToBinding("BreathLength", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
