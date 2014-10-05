@@ -51,6 +51,12 @@ public class MoveDragon : MonoBehaviour
 	[SerializeField]
 	private GameObject flapSound;
 
+	[SerializeField]
+	private AudioClip[] flapSounds;
+
+	[SerializeField]
+	private AudioClip[] wooshSounds;
+
 	private float maxHeight = 20;
 	private float minHeight = 0;
 
@@ -115,6 +121,8 @@ public class MoveDragon : MonoBehaviour
 			if (jetStreamStart == false)
 			{
 				jetStream.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y + maxHeight / 2f, 0);
+				int randWoosh = Random.Range(0,2);
+				woosh.audio.clip = wooshSounds[randWoosh];
 				woosh.audio.Play();
 				//jetStream.renderer.material.color = new Color(1f,1f,1f,1f);
 				jetStreamStart = true;
@@ -129,6 +137,12 @@ public class MoveDragon : MonoBehaviour
 				this.rigidbody2D.velocity = new Vector2(flapForwardSpeed, flapUpSpeed);
 				this.animator.SetInteger("FlightEnum", (int)FlightStatusEnum.Flap);
 				jetStream.rigidbody2D.velocity = new Vector2(0,0); // moves the jetstream along if you screw up
+				if (flapSound.audio.isPlaying == false)
+				{
+					int randFlap = Random.Range(0,4);
+					flapSound.audio.clip = flapSounds[randFlap];
+					flapSound.audio.Play();
+				}
 			}
 			else if(thisFrameFlight > 1) // stalling
 			{

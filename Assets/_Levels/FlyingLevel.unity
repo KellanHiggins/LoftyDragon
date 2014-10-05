@@ -216,7 +216,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 52d7220d3c4724042b7f1224baf65a4b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .400000006
+  m_Volume: .0939999968
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -600,7 +600,6 @@ GameObject:
   - 61: {fileID: 418172294}
   - 50: {fileID: 418172293}
   - 114: {fileID: 418172292}
-  - 82: {fileID: 418172295}
   m_Layer: 0
   m_Name: MrDragon
   m_TagString: Untagged
@@ -677,6 +676,14 @@ MonoBehaviour:
   animator: {fileID: 928403661}
   woosh: {fileID: 144708428}
   flapSound: {fileID: 531531562}
+  flapSounds:
+  - {fileID: 8300000, guid: c91dd181a370f4daa84d4e5f540b35d1, type: 3}
+  - {fileID: 8300000, guid: 1438ccb8f1bf14caeacf2f45df1a2d17, type: 3}
+  - {fileID: 8300000, guid: 7245fc8a9e1814cd0b42ee2eab206295, type: 3}
+  - {fileID: 8300000, guid: 0e4c4b4930746408395299ce88a5fa84, type: 3}
+  wooshSounds:
+  - {fileID: 8300000, guid: 52d7220d3c4724042b7f1224baf65a4b, type: 3}
+  - {fileID: 8300000, guid: 06a4ed7b4b612994b8279f5f0c786463, type: 3}
 --- !u!50 &418172293
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -705,64 +712,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: 10, y: 10.6399994}
   m_Center: {x: 0, y: 0}
---- !u!82 &418172295
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 418172289}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: c91dd181a370f4daa84d4e5f540b35d1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!1 &427783175
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +904,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: .282999992
+  m_Volume: .0939999968
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1908,6 +1857,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400000, guid: fa0fc62524f980f409be189d79516039, type: 2}
+      propertyPath: flapSounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: fa0fc62524f980f409be189d79516039, type: 2}
+      propertyPath: wooshSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 22400000, guid: fa0fc62524f980f409be189d79516039, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2016,6 +1973,30 @@ Prefab:
       propertyPath: flapSound
       value: 
       objectReference: {fileID: 531531562}
+    - target: {fileID: 11400000, guid: fa0fc62524f980f409be189d79516039, type: 2}
+      propertyPath: flapSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c91dd181a370f4daa84d4e5f540b35d1, type: 3}
+    - target: {fileID: 11400000, guid: fa0fc62524f980f409be189d79516039, type: 2}
+      propertyPath: flapSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1438ccb8f1bf14caeacf2f45df1a2d17, type: 3}
+    - target: {fileID: 11400000, guid: fa0fc62524f980f409be189d79516039, type: 2}
+      propertyPath: flapSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7245fc8a9e1814cd0b42ee2eab206295, type: 3}
+    - target: {fileID: 11400000, guid: fa0fc62524f980f409be189d79516039, type: 2}
+      propertyPath: flapSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e4c4b4930746408395299ce88a5fa84, type: 3}
+    - target: {fileID: 11400000, guid: fa0fc62524f980f409be189d79516039, type: 2}
+      propertyPath: wooshSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 52d7220d3c4724042b7f1224baf65a4b, type: 3}
+    - target: {fileID: 11400000, guid: fa0fc62524f980f409be189d79516039, type: 2}
+      propertyPath: wooshSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 06a4ed7b4b612994b8279f5f0c786463, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa0fc62524f980f409be189d79516039, type: 2}
   m_RootGameObject: {fileID: 418172289}
