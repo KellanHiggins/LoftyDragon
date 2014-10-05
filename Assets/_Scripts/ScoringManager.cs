@@ -47,7 +47,7 @@ public class ScoringManager : MonoBehaviour {
 		feedback.transform.position = Vector2.Lerp(feedback.transform.position,new Vector2(feedback.transform.position.x,feedback.transform.position.y +20),Time.deltaTime*5);
 		if ((inputManager.ExhaleCurrent < 1.5f)&&(feedbackUpdate == 0))
 		{
-			feedback.color = new Color(1f,1f,1f,1f);
+			feedback.color = new Color(1f,0f,0f,1f);
 			feedback.transform.position = feedbackStartPos;
 			feedback.text = "Good";
 			feedbackUpdate = 1;
