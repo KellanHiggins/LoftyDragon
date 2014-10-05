@@ -13,12 +13,16 @@ public class InputManager : MonoBehaviour {
 		Rest
 	}
 
+	// reference scripts
 	private MasterGenerator masterGenerator;
+
+	[SerializeField]
+	private GameState gameState;
+
+
 	private float goodBreathRange;
 	private float halfGoodBreathRange;
-
 	private float overblownRange;
-
 	private float underblownRange;
 
 	// For fetching the stuff
@@ -35,8 +39,6 @@ public class InputManager : MonoBehaviour {
 
 	Property<int> breathMinProp;
 
-//	Property<float> minExhaleTime;
-
 	private float currentBreath = 0;
 	private enumStatus currentStatus = enumStatus.Initializing;
 	private float thisBreathLength;
@@ -44,9 +46,7 @@ public class InputManager : MonoBehaviour {
 	private bool setIsGood;
 	private int setCount;
 
-
 	private int hackSetCount = 0;
-
 
 	float exhalePresMin = 0;
 	float exhalePresMax = 0;
@@ -167,8 +167,6 @@ public class InputManager : MonoBehaviour {
 	{
 		get { return statusProp.value; }
 	}
-	
-
 
 	/// <summary>
 	/// Returns the ideal of the user right at this moment. Out is -1 if the percentage hasn't started
@@ -207,26 +205,6 @@ public class InputManager : MonoBehaviour {
 			return IdealStateEnum.ReadyToBreath;
 		}
 	}
-	
-	// Grabs the info from the properties and updates the local private variables
-
-	void Update()
-	{
-//		if( breathCountProp.value >= 2 && hackFinish != true) // NOTE: set to 2 to ensure we don't take forever to test.
-//		{
-//			hackSetCount += 1;
-//			playMiniGame = true;
-//			Debug.Log("Set finished");
-//		}
-//		if(hackSetCount > 2) // NOTE: Set this to the set count numbers from the program
-//		{
-//			hackFinish = true;
-//			Debug.Log("Game finished");
-//		}
-	}
-
-
-
 
 	private void UpdateBreath(float strength)
 	{

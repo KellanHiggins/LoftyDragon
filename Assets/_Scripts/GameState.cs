@@ -25,6 +25,21 @@ public class GameState : MonoBehaviour {
 
 	public int CurrentSet { get { return setCount; } }
 	public int CurrentBreath { get { return breathCount; } }
+	public float RestTimer { get { return (float)System.Math.Round((double)restTimer, 1); } }
+	public float RestTimerCountdown
+	{
+		get
+		{
+			if(restTimer > 0)
+			{
+				return minRestTime - RestTimer;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+	}
 
 	Property<float> breathLength;
 	Property<enumStatus> breathingStatus;
@@ -52,6 +67,8 @@ public class GameState : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		DontDestroyOnLoad(this);
+
 		breathLength = new Property<float>(0);
 		breathLength.AddToBinding("BreathLength", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
 
