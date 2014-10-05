@@ -45,6 +45,12 @@ public class MoveDragon : MonoBehaviour
 	[SerializeField]
 	private Animator animator;
 
+	[SerializeField]
+	private GameObject woosh;
+
+	[SerializeField]
+	private GameObject flapSound;
+
 	private float maxHeight = 20;
 	private float minHeight = 0;
 
@@ -109,6 +115,7 @@ public class MoveDragon : MonoBehaviour
 			if (jetStreamStart == false)
 			{
 				jetStream.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y + maxHeight / 2f, 0);
+				woosh.audio.Play();
 				//jetStream.renderer.material.color = new Color(1f,1f,1f,1f);
 				jetStreamStart = true;
 			}

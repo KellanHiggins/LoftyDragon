@@ -9,7 +9,7 @@ public class InitialCloudGenerator : MonoBehaviour
 	public GameObject CloudDestroyer;
 	public GameObject CloudGenerator;
 
-	public GameObject cloudPrefab;
+	public GameObject[] cloudPrefabs;
 
 	public GameObject[] CloudLayerHolders;
 
@@ -42,8 +42,8 @@ public class InitialCloudGenerator : MonoBehaviour
 		float randomY = Random.Range(CloudGenerator.collider2D.bounds.min.y, CloudGenerator.collider2D.bounds.max.y);
 
 		Vector2 randomLoc = new Vector2(randomX, randomY);
-	
-		GameObject newCloud = GameObject.Instantiate(cloudPrefab, randomLoc, Quaternion.identity) as GameObject;
+		int i = Random.Range(0, 4);
+		GameObject newCloud = GameObject.Instantiate(cloudPrefabs[i], randomLoc, Quaternion.identity) as GameObject;
 		newCloud.transform.parent = holder.gameObject.transform;
 		newCloud.transform.localScale = new Vector3(1,1,1);
 	}
