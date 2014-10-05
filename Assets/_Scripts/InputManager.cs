@@ -25,11 +25,17 @@ public class InputManager : MonoBehaviour {
 	Property<float> breathStrength;
 	Property<enumStatus> status;
 	Property<float> breathLength;
+	Property<bool> goodSet;
+	Property<int> breathCountGood;
+	Property<bool> breathGood;
+	Property<int> setCount;
 //	Property<float> minExhaleTime;
 
 	private float currentBreath = 0;
 	private enumStatus currentStatus = enumStatus.Initializing;
 	private float thisBreathLength;
+	private int goodBreathCount;
+	private bool setIsGood;
 
 	float exhalePresMin = 0;
 	float exhalePresMax = 0;
@@ -78,6 +84,19 @@ public class InputManager : MonoBehaviour {
 		breathStrength = new Property<float>(0);
 		breathStrength.AddToBinding("BreathStrength", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
 		breathStrength.AddListener(UpdateBreath);
+
+		// Binding to the currentSet
+		goodSet = new Property<bool>(false);
+		goodSet.AddToBinding("SetIsGood", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
+		goodSet.AddListener(SetGoodUpdate);
+
+		breathCountGood = new Property<int>(0);
+		breathCountGood.AddToBinding("BreathCountGood", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
+		breathCountGood.AddListener(GoodBreathCountUpdate);
+
+		breathGood = new Property<bool>(false);
+		breathGood.AddToBinding("BreathIsGood", BindingDirection.BindingToProperty, AssignmentOnAdd.TakeBindingValue);
+		breathGood.AddListener(BreathGood);
 
 	}
 
@@ -132,7 +151,7 @@ public class InputManager : MonoBehaviour {
 	public IdealStateEnum IdealState
 	{
 		get 
-		{ 
+		{
 			if(this.BreathingStatus == enumStatus.Ready)
 			{
 				return IdealStateEnum.ReadyToBreath;
@@ -148,12 +167,20 @@ public class InputManager : MonoBehaviour {
 					return IdealStateEnum.Inhale;
 				}
 			}
-			
+
+//			if()
+
 			return IdealStateEnum.ReadyToBreath;
 		}
 	}
 	
 	// Grabs the info from the properties and updates the local private variables
+
+	void Update()
+	{
+//		Debug.Log("Set is " + setIsGood + " GoodbreathCount " + goodBreathCount);
+	}
+
 
 	private void UpdateBreath(float strength)
 	{
@@ -168,5 +195,20 @@ public class InputManager : MonoBehaviour {
 	private void BreathLengthUpdate(float length)
 	{
 		thisBreathLength = length;
+	}
+
+	private void SetGoodUpdate(bool setGood)
+	{
+		setIsGood = setGood;
+	}
+
+	private void GoodBreathCountUpdate(int num)
+	{
+		goodBreathCount = num;
+	}
+
+	private void BreathGood(bool goodBreath)
+	{
+		Debug.Log("breath is " + goodBreath);
 	}
 }

@@ -56,7 +56,6 @@ public class MoveDragon : MonoBehaviour
 	{
 		BoxCollider2D box = currentPath.GetComponent("BoxCollider2D")as BoxCollider2D;
 		this.transform.position = Vector3.Lerp(new Vector3(this.transform.position.x, currentY, 0), new Vector3(this.transform.position.x,box.bounds.center.y,0),Time.deltaTime*5);
-		Debug.Log(this.transform.position.y);
 		if ((this.transform.position.y < box.bounds.center.y+1)&&(this.transform.position.y > box.bounds.center.y-1))
 		{
 			this.transform.position = new Vector2(this.transform.position.x, box.bounds.center.y);

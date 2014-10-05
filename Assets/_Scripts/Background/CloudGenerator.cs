@@ -35,7 +35,6 @@ public class CloudGenerator : MonoBehaviour {
 		if(cloudNewLocation != null)
 		{
 			// find a random point along the cloud generator
-			Debug.Log(cloudNewLocation.collider2D.bounds.min.y);
 
 			float randomRange = Random.Range(cloudNewLocation.collider2D.bounds.min.y, cloudNewLocation.collider2D.bounds.max.y);
 
