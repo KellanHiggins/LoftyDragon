@@ -3,9 +3,13 @@ using System.Collections;
 
 public class Cloud : MonoBehaviour {
 
+	[SerializeField]
+	private GameObject creator;
+
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
+		creator = GameObject.Find("GameObjectPoolCreator");
 	}
 	
 	// Update is called once per frame
@@ -17,7 +21,11 @@ public class Cloud : MonoBehaviour {
 	{
 		if(other.name == "GameObjectPoolCollector")
 		{
-			GameObject.Destroy(this.gameObject);
+			if (creator)
+			{
+				float y = Random.Range(creator.transform.position.y - this.renderer.bounds.size.y, 0f);
+				this.transform.position = new Vector2 (creator.transform.position.x + this.renderer.bounds.size.x, y);
+			}
 		}
 	}
 }
