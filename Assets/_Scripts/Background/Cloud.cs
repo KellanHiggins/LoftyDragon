@@ -23,7 +23,8 @@ public class Cloud : MonoBehaviour {
 		{
 			if (creator)
 			{
-				float y = Random.Range(creator.transform.position.y - this.renderer.bounds.size.y, 0f);
+				Debug.Log("position" + creator.transform.position.y);
+				float y = Random.Range((creator.transform.position.y - 80/2) - this.renderer.bounds.size.y, 80 + creator.transform.position.y);
 				this.transform.position = new Vector2 (creator.transform.position.x + this.renderer.bounds.size.x, y);
 			}
 		}
