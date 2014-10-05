@@ -56,8 +56,8 @@ TextureImporter:
         y: 1426
         width: 664
         height: 592
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .61478138, y: .463216633}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonDrop_1
       rect:
@@ -66,8 +66,8 @@ TextureImporter:
         y: 1449
         width: 698
         height: 588
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .605290532, y: .453707933}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonDrop_2
       rect:
@@ -76,8 +76,8 @@ TextureImporter:
         y: 802
         width: 697
         height: 588
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .613252282, y: .458337277}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonDrop_3
       rect:
@@ -86,8 +86,8 @@ TextureImporter:
         y: 855
         width: 697
         height: 539
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .60544163, y: .398999602}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonDrop_4
       rect:
@@ -96,8 +96,8 @@ TextureImporter:
         y: 134
         width: 697
         height: 588
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .601536334, y: .453707933}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonDrop_5
       rect:
@@ -106,8 +106,8 @@ TextureImporter:
         y: 130
         width: 698
         height: 588
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .605290532, y: .449078977}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

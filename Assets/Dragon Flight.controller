@@ -126,6 +126,26 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
+--- !u!1101 &110152651
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110242563}
+  m_DstState: {fileID: 110286667}
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: FlightEnum
+    m_EventTreshold: 0
+    m_ExitTime: 1
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
 --- !u!1101 &110165596
 Transition:
   serializedVersion: 2
@@ -141,6 +161,66 @@ Transition:
   - m_ConditionMode: 6
     m_ConditionEvent: FlightEnum
     m_EventTreshold: 1
+    m_ExitTime: 1
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110166248
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110242563}
+  m_DstState: {fileID: 110250611}
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: FlightEnum
+    m_EventTreshold: 2
+    m_ExitTime: 1
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110176621
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110250611}
+  m_DstState: {fileID: 110242563}
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: FlightEnum
+    m_EventTreshold: 3
+    m_ExitTime: 1
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110186101
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110250611}
+  m_DstState: {fileID: 110286667}
+  m_TransitionDuration: .351004809
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: FlightEnum
+    m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -187,7 +267,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: b8518d521eaebdc4bac819c2e295ad20, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 132, y: 108, z: 0}
+  m_Position: {x: 204, y: 180, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -266,10 +346,14 @@ StateMachine:
       first: {fileID: 110250611}
       second:
       - {fileID: 110118713}
+      - {fileID: 110176621}
+      - {fileID: 110186101}
     data:
       first: {fileID: 110242563}
       second:
       - {fileID: 110165596}
+      - {fileID: 110152651}
+      - {fileID: 110166248}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 36, y: -156, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

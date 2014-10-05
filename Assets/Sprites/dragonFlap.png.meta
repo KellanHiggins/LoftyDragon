@@ -45,7 +45,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 40
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -58,8 +58,8 @@ TextureImporter:
         y: 1487
         width: 583
         height: 556
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .612053156, y: .421670169}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonFlap_1
       rect:
@@ -68,8 +68,8 @@ TextureImporter:
         y: 1512
         width: 579
         height: 505
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .608126044, y: .451489747}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonFlap_2
       rect:
@@ -78,8 +78,8 @@ TextureImporter:
         y: 1513
         width: 604
         height: 534
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .603650808, y: .433735013}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonFlap_3
       rect:
@@ -88,8 +88,8 @@ TextureImporter:
         y: 1098
         width: 750
         height: 343
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .590731919, y: .769814551}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonFlap_4
       rect:
@@ -98,8 +98,8 @@ TextureImporter:
         y: 1104
         width: 729
         height: 333
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .604546964, y: .76974237}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonFlap_5
       rect:
@@ -108,8 +108,8 @@ TextureImporter:
         y: 507
         width: 676
         height: 598
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .588584423, y: .449930459}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonFlap_6
       rect:
@@ -118,8 +118,8 @@ TextureImporter:
         y: 429
         width: 714
         height: 592
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .595306635, y: .385052443}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: dragonFlap_7
       rect:
@@ -128,8 +128,8 @@ TextureImporter:
         y: 4
         width: 640
         height: 577
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .614832699, y: .400933892}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
