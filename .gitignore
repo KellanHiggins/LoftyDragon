@@ -13,5 +13,6 @@
 /*.pidb
 /*.booproj
 
+#Test for uploading to git
 #Unity3D Generated File On Crash Reports
 sysinfo.txt
